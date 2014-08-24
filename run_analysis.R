@@ -105,7 +105,7 @@ repeat{
 names(testData); names(trainData)
 dim(testData); dim(trainData)
 
-#step 6:
+#step 7:
 #merge activity_labels.txt and y_test.txt; activity_labels.txt and y_train.txt to get the activity name
 #Inner join
 #make sure to keep the original row order
@@ -126,7 +126,7 @@ table(testActivity$Activity) #count how many occurences per activity
 dim(testActivity); dim(trainActivity);
 
 
-#step 7: combine the data sets above with activity labels
+#step 8: combine the data sets above with activity labels
 #the merged data set at this step should include the following:
 #  activity, subjectId, and the data in the X_test.txt
 # the data set structure should be like below.
@@ -140,7 +140,7 @@ trainMerged1 <- cbind(trainActivity, trainData)
 head(testMerged1, n=1); testMerged1[1:33, c(1:4, 564)]; tail(testMerged1); str(testMerged1); 
 names(testMerged1); names(trainMerged1); dim(testMerged1); dim(trainMerged1)
 
-#step 8: combine subject_test.txt to testMerged and trainMerged data set on step 8.
+#step 9: combine subject_test.txt to testMerged and trainMerged data set on step 8.
 # the data set structure should be like below.
 # Test data:  2947 rows and 564 columns.
 # Train data: 7352 rows and 564 columns.
@@ -153,13 +153,13 @@ head(testMerged2, n=1); tail(testMerged2, n=3); str(testMerged2);
 names(testMerged2); names(trainMerged2); 
 dim(testMerged2); dim(trainMerged2)
 
-#step 9: combine merged test and train data set
+#step 10: combine merged test and train data set
 # There'll be 10299 rows and 564 columns
 testTrainMerged <- rbind(testMerged2, trainMerged2)
 names(testTrainMerged);
 dim(testTrainMerged); 
 
-#step 10: only extract mean and standard devidation for each measurement(observation/row)
+#step 11: only extract mean and standard devidation for each measurement(observation/row)
 #use regular expression to search for all feature for mean and standard deviation
 # There'll be 10299 rows and 79 columns(variables)
 meanStdLogical <- grepl("mean()|meanFreq()|std()", colnames(testTrainMerged)) #79 columns with mean or standard deviation
@@ -174,8 +174,14 @@ dim(testTrainMerged2)
 #   tBodyAcc-mean()-X             tBodyAccMeanX
 #   tGravityAcc-std()-Z           tGravityAccStdZ
 #   fBodyBodyGyroMag-meanFreq()   fBodyBodyGyroMagMeanFreq
-variables <- colnames(testTrainMerged2);
-variables
+oldVariableNames <- colnames(testTrainMerged2);
+oldVariableNames
+newVariableNames <- gsub("[()]|-|,","", oldVariableNames)#remove (), commas and hyphen
+newVariableNames <- gsub("mean","Mean", newVariableNames)#capitalize first letter of mean
+newVariableNames <- gsub("std","Std", newVariableNames)#captitalize first letter of std
+newVariableNames
+
+
 
 #step 12: Creates a second, independent tidy data set with the average 
 #of each variable for each activity and each subject.
