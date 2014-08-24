@@ -38,17 +38,17 @@ step 3: read the README.txt in the data zip file.
         read data set description http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones  
         read project requirement on course webpage  
 
-##load data sets into memory.   
+##Load data sets into memory.   
 step 4a: load possible activities.  
 step 4b: load features.  
 step 4c: load activity labels.  
 step 4d: load  subject id.  
-step 4e: load test and train data.  
+step 4e: load test and train data.
+
 step 5: Data exploration.  
 After data exploration, here're what I concluded:   
  there're 2947 rows in the X_test.txt, y_test.txt, and subject_test.txt  
  and 7352 rows in the X_train.txt, y_train.txt, and subject_train.txt  
-
 
 ##Data Merging   
 step 6: combine the data set on features.txt with X_test.txt  
