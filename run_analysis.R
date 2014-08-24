@@ -240,8 +240,11 @@ class(testTrainMergedAverages);
 testTrainMergedAverages[1:50,1:5]
 
 #output to file and upload to course webpage
-write.csv(testTrainMergedAverages
-          , file = 'C:/Self_Dev/coursera_classes/Get_and_cleaning_data/project/getCleanDataCourseRepo/testTrainMergedAverages.txt')
+#do not include row name
+write.table(testTrainMergedAverages
+          , file = 'C:/Self_Dev/coursera_classes/Get_and_cleaning_data/project/getCleanDataCourseRepo/testTrainMergedAverages.txt'
+          , sep = ","
+          , row.name=FALSE)
 
 ######################### End of Script #################################################
 
