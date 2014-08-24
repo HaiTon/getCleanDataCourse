@@ -67,17 +67,18 @@ the merged data set at this step should include the following:
  the data set structure should be like below.  
  Test data:  2947 rows and 563 columns.  
  Train data: 7352 rows and 563 columns.  
-> ActivityId  Activity tBodyAcc-mean()-Y  ...  angle(Z,gravityMean)  
->     5      STANDING    0.2571778        ...    -0.057978304  
->     5      STANDING     .2860267        ...    -0.083898014  
+ActivityId&nbsp;&nbsp;Activity&nbsp;&nbsp;&nbsp;tBodyAcc-mean()-Y&nbsp;  ...&nbsp;&nbsp;  angle(Z,gravityMean)  
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;STANDING    0.2571778&nbsp;   ...&nbsp;&nbsp;    -0.057978304  
+&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;STANDING    0.2860267&nbsp;   ...&nbsp;&nbsp;    -0.083898014  
 
 **Step 9: combine subject_test.txt to testMerged and trainMerged data set on step 8.**   
  the data set structure should be like below.  
  Test data:  2947 rows and 564 columns.  
  Train data: 7352 rows and 564 columns.  
- SubjectId....ActivityId.....Activity....tBodyAcc-mean()-Y.......angle(Z,gravityMean)  
- ....2............5......... STANDING.......0.2571778................-0.057978304  
- ....2............5..........STANDING....... .2860267................-0.083898014  
+ SubjectId&nbsp;&nbsp;&nbsp;&nbsp;ActivityId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Activity&nbsp;&nbsp;&nbsp;&nbsp;tBodyAcc-mean()-Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;angle(Z,gravityMean)  
+ &nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STANDING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;2571778&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.057978304  
+ &nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STANDING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;2860267&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.083898014 
+ 
 
 **Step 10: combine merged test and train data set.**    
  There'll be 10299 rows and 564 columns  
