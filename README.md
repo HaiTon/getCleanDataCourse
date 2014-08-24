@@ -3,7 +3,7 @@
 
 
 ##Purpose:
-Below is the logic and steps of how the run_analysis.R script works. The run_analysis.R merges test and actual data set collected from sample Samsung smartphone devices.
+Below is the logic and steps of how the run_analysis.R script works. The run_analysis.R merges test and actual people's activity data set collected from Samsung smartphone devices.
 
 ##Data set source:
    https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip    
