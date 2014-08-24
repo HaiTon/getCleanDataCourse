@@ -1,5 +1,5 @@
             DATA DICTIONARY -- Samsung Smartphone Activity Data
-			Note this the description for the final merged data set.
+          Note this is description for the final merged data set.
 
 SubjectId  
    id to identify who perform the activity. SubjectId range from 1 to 30.
