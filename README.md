@@ -38,7 +38,7 @@ step 3: read the README.txt in the data zip file.
         read data set description http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones  
         read project requirement on course webpage  
 
-##Load data sets into memory.   
+###Load data sets into memory.   
 step 4a: load possible activities.  
 step 4b: load features.  
 step 4c: load activity labels.  
@@ -50,7 +50,7 @@ After data exploration, here're what I concluded:
  there're 2947 rows in the X_test.txt, y_test.txt, and subject_test.txt  
  and 7352 rows in the X_train.txt, y_train.txt, and subject_train.txt  
 
-##Data Merging   
+###Data Merging   
 step 6: combine the data set on features.txt with X_test.txt  
        and features.txt with X_train.txt   
  pivot all rows in features.txt to columns and these are the labels for  
@@ -100,7 +100,7 @@ example:
 ...tGravityAcc-std()-Z..............tGravityAccStdZ   
 ...fBodyBodyGyroMag-meanFreq()......fBodyBodyGyroMagMeanFreq   
 
-##Compute Averages   
+###Compute Averages   
 step 13: Creates a second, independent tidy data set with the average   
 of each variable for each activity and each subject.  
 use melt() of reshape2 package to melt the data set into one skinny long data set.  
