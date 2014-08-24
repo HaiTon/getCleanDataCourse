@@ -75,9 +75,9 @@ the merged data set at this step should include the following:
  the data set structure should be like below.  
  Test data:  2947 rows and 564 columns.  
  Train data: 7352 rows and 564 columns.  
- SubjectId ActivityId  Activity  tBodyAcc-mean()-Y  ...  angle(Z,gravityMean)  
-     2       5         STANDING    0.2571778        ...    -0.057978304  
-     2       5         STANDING     .2860267        ...    -0.083898014  
+ SubjectId....ActivityId...Activity....tBodyAcc-mean()-Y.......angle(Z,gravityMean)  
+     2........5............STANDING.....0.2571778..............-0.057978304  
+     2........5............STANDING.... .2860267...............-0.083898014  
 
 **Step 10: combine merged test and train data set.**    
  There'll be 10299 rows and 564 columns  
@@ -100,7 +100,7 @@ fBodyBodyGyroMag-meanFreq()........fBodyBodyGyroMagMeanFreq
 ###Compute Averages   
 **Step 13: Creates a second, independent tidy data set with the averageof each variable for each activity and each subject.**  
 Use melt() of reshape2 package to melt the data set into one skinny long data set.  
-note: id columns is the group by column.  
+Note: id columns is the group by column.  
  And if measure parameter is left blank, melt() will use all non-id columns for measure  
 The result is should be 180 rows (30 subject * 6 activities)  
 cast the melt data set into a data frame and apply the mean function to each measure    
