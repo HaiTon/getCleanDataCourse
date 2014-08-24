@@ -51,7 +51,7 @@ After data exploration, here're what I concluded:
  and 7352 rows in the X_train.txt, y_train.txt, and subject_train.txt  
 
 ###Data Merging   
-**Step 6: combine the data set on features.txt with X_test.txt and features.txt with X_train.txt **    
+**Step 6: combine the data set on features.txt with X_test.txt and features.txt with X_train.txt**    
  Pivot all rows in features.txt to columns and these are the labels for column V1 to V561 in the X_test.txt and Y_train.txt    
 
 **Step 7:Merge activity_labels.txt and y_test.txt; activity_labels.txt and y_train.txt to get the activity name.**   
@@ -67,17 +67,17 @@ the merged data set at this step should include the following:
  the data set structure should be like below.  
  Test data:  2947 rows and 563 columns.  
  Train data: 7352 rows and 563 columns.  
- ActivityId  Activity tBodyAcc-mean()-Y  ...  angle(Z,gravityMean)  
-     5      STANDING    0.2571778        ...    -0.057978304  
-     5      STANDING     .2860267        ...    -0.083898014  
+> ActivityId  Activity tBodyAcc-mean()-Y  ...  angle(Z,gravityMean)  
+>     5      STANDING    0.2571778        ...    -0.057978304  
+>     5      STANDING     .2860267        ...    -0.083898014  
 
 **Step 9: combine subject_test.txt to testMerged and trainMerged data set on step 8.**   
  the data set structure should be like below.  
  Test data:  2947 rows and 564 columns.  
  Train data: 7352 rows and 564 columns.  
- SubjectId....ActivityId...Activity....tBodyAcc-mean()-Y.......angle(Z,gravityMean)  
-     2........5............STANDING.....0.2571778..............-0.057978304  
-     2........5............STANDING.... .2860267...............-0.083898014  
+ SubjectId....ActivityId.....Activity....tBodyAcc-mean()-Y.......angle(Z,gravityMean)  
+ ....2............5......... STANDING.......0.2571778................-0.057978304  
+ ....2............5..........STANDING....... .2860267................-0.083898014  
 
 **Step 10: combine merged test and train data set.**    
  There'll be 10299 rows and 564 columns  
