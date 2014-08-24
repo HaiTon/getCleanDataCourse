@@ -96,9 +96,9 @@ Note: since this data set has 82 columns(variables), I don't want to make the na
 reference: https://class.coursera.org/getdata-006/forum/thread?thread_id=132  
 example:   
 .........oldName.......................newName  
-   tBodyAcc-mean()-X................tBodyAccMeanX  
-   tGravityAcc-std()-Z..............tGravityAccStdZ   
-   fBodyBodyGyroMag-meanFreq()......fBodyBodyGyroMagMeanFreq   
+...tBodyAcc-mean()-X................tBodyAccMeanX  
+...tGravityAcc-std()-Z..............tGravityAccStdZ   
+...fBodyBodyGyroMag-meanFreq()......fBodyBodyGyroMagMeanFreq   
 
 ##Compute Averages   
 step 13: Creates a second, independent tidy data set with the average   
