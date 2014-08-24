@@ -5,14 +5,24 @@
 #Data set description: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 #Please refer to codebook and README for more information.
 #Note: The script includes step by step of how the data is merged and output.
-#      This some functions like name, str, class, dim seem redundant, but I include them
+#      Some functions like name, str, class, dim seem redundant, but I include them
 #        along with each step. This is mainly for learning purpose.
 #References:
 #text processing: http://en.wikibooks.org/wiki/R_Programming/Text_Processing
 #join in R: http://www.dummies.com/how-to/content/how-to-use-the-merge-function-with-data-sets-in-r.html
 #project guideline from TA, David Hood: https://class.coursera.org/getdata-006/forum/list?forum_id=10009
 #Tidy Data from Hadly Wickham: http://vita.had.co.nz/papers/tidy-data.pdf
-
+#
+# Files description:
+# features.txt:      List of all features.
+# activity_labels.txt: Links the class labels with their activity name.
+# test/X_test.txt:   Test set.
+# test/y_test.txt:   Test labels.
+# train/X_train.txt: Training set.
+# train/y_train.txt: Training labels.
+# train/subject_test.txt and test/subject_train.txt: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+#
+# Assumptions: We'll ignore files int eh Inertial folders.
 
 #load packages
 install.packages("plyr")
@@ -21,7 +31,6 @@ install.packages("reshape2")
 library(dplyr)
 library(plyr)
 library(reshape2)
-
 
 #set working directory
 setwd("C:/Self_Dev/coursera_classes/Get_and_cleaning_data/project/data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset")
@@ -32,22 +41,19 @@ setwd("C:/Self_Dev/coursera_classes/Get_and_cleaning_data/project/data/getdata-p
 #        read data set description http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 #        read project requirement on course webpage
 
-
-##########################################
-#  step 4: load data sets into memory. ###
-##########################################
-#step 4a: load possible activities into memory
-#this dataset links the class labels with their activity name
+###############################################
+#  step 4: load data sets into memory. ########
+###############################################
+#step 4a: load possible activities.
 activity <- read.table("activity_labels.txt", header=FALSE, stringsAsFactors=FALSE)
 #rename columns
 colnames(activity)[1] = "ActivityId"
 colnames(activity)[2] = "Activity"
-
 #check result
 head(activity, n=10); str(activity); names(activity); nrow(activity); dim(activity)
 class(activity)
 
-#step 4b: load features into memory
+#step 4b: load features.
 #features or functions that use to measure the activities
 #each row of this represent a column in x_test.txt or X_train.txt 
 features <- read.table("features.txt", header=FALSE, stringsAsFactors=FALSE)
@@ -57,33 +63,31 @@ colnames(features)[2] <- "Feature"
 #check result
 head(features, n=3); str(features); names(features); dim(features); class(features)
 
-#step 4c: load activity labels into memory
+#step 4c: load activity labels.
 #each row represent an activity in the X_test.txt or X_train.txt
 #use the activity_labels.txt to get the descriptive label
 testActivityLabels <- read.table("./test/y_test.txt", header=FALSE, stringsAsFactors=FALSE)
 trainActivityLabels <- read.table("./train/y_train.txt", header=FALSE, stringsAsFactors=FALSE)
- #change column name
+#change column name
 colnames(testActivityLabels)[1] <- "ActivityId"
 colnames(trainActivityLabels)[1] <- "ActivityId"
-
 #check result
 head(testActivityLabels, n=3); str(testActivityLabels); names(testActivityLabels); 
 dim(testActivityLabels); class(testActivityLabels)
 dim(trainActivityLabels); 
 
-#step 4d: load  subject id into memory
+#step 4d: load  subject id.
 #each row in this data set is linked to a row in the X_test.txt or X_train.txt
 testSubject <- read.table("./test/subject_test.txt", header=FALSE,  stringsAsFactors=FALSE)
 trainSubject <- read.table("./train/subject_train.txt", header=FALSE,  stringsAsFactors=FALSE)
  #change the column name for subject in the merged data set
 colnames(testSubject)[1] = "SubjectId"
 colnames(trainSubject)[1] = "SubjectId"
-
 #check result
 head(testSubject, n=3); str(testSubject); names(testSubject); class(testSubject)
 dim(testSubject); dim(trainSubject)
 
-#step 4e: load data into memory
+#step 4e: load test and train data.
 #Notice: there are 561 columns, same as number of rows in the features dataset, 
 #        thus each column represent a feature in the features dataset.
 testData<- read.table("./test/X_test.txt", header=FALSE, stringsAsFactors=FALSE)
@@ -91,7 +95,6 @@ trainData<- read.table("./train/X_train.txt", header=FALSE, stringsAsFactors=FAL
 #check result
 head(testData, n=1); str(testData); names(testData);  
 dim(testData); dim(trainData)
-
 
 #step 5: Data explaration.
 #After data exploration, here're what I concluded:
@@ -106,20 +109,16 @@ dim(testData); dim(trainData)
 #       and features.txt with X_train.txt
 # pivot all rows in features.txt to columns and these are the labels for
 # column V1 to V561 in the X_test.txt and Y_train.txt
-
 featureCount <- nrow(features) #count for loop limit
 i <- featureCount #position counter for loop
-
 repeat{
   colnames(testData)[i] <- features[i, "Feature"]
   colnames(trainData)[i] <- features[i, "Feature"]
-  
   i <- i - 1 #decrement position counter
   if (i <= 0){#exit loop when no more feature to process
     break
   }
 }
-
 #check result
 names(testData); names(trainData)
 dim(testData); dim(trainData)
@@ -140,7 +139,6 @@ tail(testActivity, n=3); tail(trainActivity, n=3); str(testActivity);
 names(testActivity); dim(testActivity)
 table(testActivity$Activity) #count how many occurences per activity
 dim(testActivity); dim(trainActivity);
-
 
 #step 8: combine the data sets above with activity labels
 #the merged data set at this step should include the following:
@@ -178,8 +176,8 @@ testTrainMerged <- rbind(testMerged2, trainMerged2);
 names(testTrainMerged);
 dim(testTrainMerged); 
 
-#step 11: only extract mean and standard devidation for each measurement(observation/row)
-#use regular expression to search for all feature for mean and standard deviation
+#step 11: only extract mean and standard devidation for each measurement(observation/row).
+#use regular expression to search for all feature for mean and standard deviation.
 # There'll be 10299 rows and 82 columns(variables)
 meanStdLogical <- grepl("mean()|meanFreq()|std()", colnames(testTrainMerged)); #79 columns with mean or standard deviation
 testTrainMerged2 <- cbind(testTrainMerged[, c("SubjectId", "ActivityId", "Activity")]
@@ -204,23 +202,18 @@ oldVariableNames; oldVariableNames[1]; class(oldVariableNames)
 newVariableNames <- gsub("[()]|-|,","", oldVariableNames)#remove (), commas and hyphen
 newVariableNames <- gsub("mean","Mean", newVariableNames)#capitalize first letter of mean
 newVariableNames <- gsub("std","Std", newVariableNames)#captitalize first letter of std
-
 #check result
 newVariableNames[1]; class(newVariableNames);
-
 #update merged data set columns
 variableCount <- ncol(testTrainMerged2) #count for loop limit
 i <- variableCount #position counter for loop
-
 repeat{
   colnames(testTrainMerged2)[i] <- newVariableNames[i]
-  
   i <- i - 1 #decrement position counter
   if (i <= 0){#exit loop when no more feature to process
     break
   }
 }
-
 #check result
 names(testTrainMerged2); dim(testTrainMerged2); str(testTrainMerged2)
 
@@ -247,7 +240,8 @@ class(testTrainMergedAverages);
 testTrainMergedAverages[1:50,1:5]
 
 #output to file and upload to course webpage
-write.csv(testTrainMergedAverages, file = 'C:/Self_Dev/coursera_classes/Get_and_cleaning_data/project/getCleanDataCourseRepo/testTrainMergedAverages.txt')
+write.csv(testTrainMergedAverages
+          , file = 'C:/Self_Dev/coursera_classes/Get_and_cleaning_data/project/getCleanDataCourseRepo/testTrainMergedAverages.txt')
 
-#########################   End of Script #################################################
+######################### End of Script #################################################
 
