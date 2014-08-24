@@ -68,8 +68,8 @@ the merged data set at this step should include the following:
  Test data:  2947 rows and 563 columns.  
  Train data: 7352 rows and 563 columns.  
 ActivityId&nbsp;&nbsp;Activity&nbsp;&nbsp;&nbsp;tBodyAcc-mean()-Y&nbsp;  ...&nbsp;&nbsp;  angle(Z,gravityMean)  
-&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;STANDING    0.2571778&nbsp;   ...&nbsp;&nbsp;    -0.057978304  
-&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;STANDING    0.2860267&nbsp;   ...&nbsp;&nbsp;    -0.083898014  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 &nbsp;&nbsp;&nbsp;&nbsp;STANDING &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0.2571778&nbsp;   ...&nbsp;&nbsp;    -0.057978304  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 &nbsp; &nbsp;&nbsp;&nbsp;STANDING &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  0.2860267&nbsp;   ...&nbsp;&nbsp;    -0.083898014  
 
 **Step 9: combine subject_test.txt to testMerged and trainMerged data set on step 8.**   
  the data set structure should be like below.  
