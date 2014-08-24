@@ -2,7 +2,8 @@
 
 
 
-##Purpose: Below is the logic and steps of how the run_analysis.R script works. The run_analysis.R merges test and actual data set collected from sample Samsung smartphone devices.
+##Purpose:
+Below is the logic and steps of how the run_analysis.R script works. The run_analysis.R merges test and actual data set collected from sample Samsung smartphone devices.
 Data set source: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 Data set description: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 Please refer to codebook and README for more information.
@@ -24,9 +25,10 @@ Tidy Data from Hadly Wickham: http://vita.had.co.nz/papers/tidy-data.pdf
  train/y_train.txt: Training labels.
  train/subject_test.txt and test/subject_train.txt: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-##Assumptions: We'll ignore files in the Inertial folders.
+##Assumptions: 
+  We'll ignore files in the Inertial folders.
 
-#Detailed Instruction
+##Detailed Instructions:
 
 step 1: download data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 step 2: extract the data zip file
