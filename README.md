@@ -95,10 +95,10 @@ Note: since this data set has 82 columns(variables), I don't want to make the na
  The codebook file on this github repo contain more detailed variables description.  
 reference: https://class.coursera.org/getdata-006/forum/thread?thread_id=132  
 example:   
-.........oldName.......................newName  
-...tBodyAcc-mean()-X................tBodyAccMeanX  
-...tGravityAcc-std()-Z..............tGravityAccStdZ   
-...fBodyBodyGyroMag-meanFreq()......fBodyBodyGyroMagMeanFreq   
+...........oldName...................................newName  
+tBodyAcc-mean()-X......................tBodyAccMeanX  
+tGravityAcc-std()-Z........................tGravityAccStdZ   
+fBodyBodyGyroMag-meanFreq()........fBodyBodyGyroMagMeanFreq   
 
 ###Compute Averages   
 step 13: Creates a second, independent tidy data set with the average   
